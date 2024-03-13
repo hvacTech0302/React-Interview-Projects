@@ -5,7 +5,7 @@ import "./accordion.styles.css";
 // Single Selection
 //Multi Selection
 
-export default function Accordian() {
+const Accordion = () => {
   const [selected, setSelected] = useState(null);
   const [enableMultiSelection, setEnableMultiSelection] = useState(false);
   const [multipleSelected, setMultipleSelected] = useState([]);
@@ -22,8 +22,6 @@ export default function Accordian() {
     setMultipleSelected(copyMultipleSelected);
   };
 
-  console.log(selected, multipleSelected);
-
   return (
     <div className="wrapper">
       <button
@@ -36,6 +34,7 @@ export default function Accordian() {
         {data && data.length > 0 ? (
           data.map((dataItem) => (
             <div
+              key={dataItem.id}
               className="item"
               onClick={
                 enableMultiSelection
@@ -61,4 +60,6 @@ export default function Accordian() {
       </div>
     </div>
   );
-}
+};
+
+export default Accordion;
